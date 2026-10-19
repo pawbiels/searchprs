@@ -1,6 +1,10 @@
 # Rules Search v2 eval<!-- omit in toc -->
 _19.10.2026 pb_
 
+<!-->
+pandoc -o readme.docx -f markdown -t docx readme.md
+<-->
+
 - [ISSUES](#issues)
   - [Pending](#pending)
     - [Created on 19.10.2026](#created-on-19102026)
@@ -49,9 +53,9 @@ _19.10.2026 pb_
 - ISSUE#15 from 19.10.2026 operator logiczny NOT nie działa, traktuje `not` jako słowo do wyszukania, przykład ["watertight NOT door"](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+NOT+door&rowspage=20), [screen](#15-operator-not)
   - rozwiązane przez nawiasy patrz ISSUE#04
 - ISSUE#13 from 19.10.2026 powiązany z ISSUE#12, ale dotyczy OR (identyczne zachowanie)
-  - - rozwiązane przez nawiasy patrz ISSUE#04
+  - rozwiązane przez nawiasy patrz ISSUE#04
 - ISSUE#12 from 19.10.2026 Operator logiczny AND nie działa, przykład: [watertight AND door](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+AND+door&rowspage=20) oraz [watertight door](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+door&rowspage=20) dają identyczne 126 wyników, przy czym pierwsze wyszukanie podświetla również słowo 'and'
-  - - rozwiązane przez nawiasy patrz ISSUE#04
+  - rozwiązane przez nawiasy patrz ISSUE#04
 - ISSUE#09 from 19.10.2026 [Grupy w lewym panelu](#zwijalna-lista-kategorii) do filtracji powinny być zwijalne (domyślnie zwinięte); dobrze jest to rozwiązane w zakładce `Browse Documents`
   - kategorie w lewym panelu są teraz zwijalne
 - ISSUE#04 from 12.10.2026 [operatory](#operatory-logiczne) AND/OR nie działają, funkcjonują jako zwykłe wyszukiwanie i znajdują słowa and/or lub fragmenty słów [przykład](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&query=wtyczka+OR+gniazdo+OR+p%C5%82ywak&cb_PL=on&cb_EN=on&rowspage=20) `wtyczka OR gniazdo OR pływak`
