@@ -1,10 +1,14 @@
 # Rules Search v2 eval<!-- omit in toc -->
-_12.10.2026 pb_
+_19.10.2026 pb_
 
 - [ISSUES](#issues)
   - [Pending](#pending)
+    - [19.10.2026](#19102026)
+    - [12.10.2026](#12102026)
   - [Solved](#solved)
+  - [Outdated](#outdated)
 - [Wyszukiwanie](#wyszukiwanie)
+  - [#15 Operator NOT](#15-operator-not)
   - [Wiele wyników w jednym pliku](#wiele-wyników-w-jednym-pliku)
   - [Line break](#line-break)
   - [Restrykcyjne wyszukiwanie](#restrykcyjne-wyszukiwanie)
@@ -21,8 +25,18 @@ _12.10.2026 pb_
 
 ### Pending
 
-- ISSUE#10 związane z ISSUE#07, [strony z wynikami](#numeracja-stron-z-wynikami) powinny zliczać DOKUMENTY z wynikami (po 20), a nie wyniki jak obecnie (za dużo stron)
-- ISSUE#09 [Grupy w lewym panelu](#zwijalna-lista-kategorii) do filtracji powinny być zwijalne (domyślnie zwinięte)
+#### 19.10.2026
+
+- ISSUE#15 operator logiczny NOT nie działa, traktuje `not` jako słowo do wyszukania, przykład ["watertight NOT door"](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+NOT+door&rowspage=20), [screen](#15-operator-not)
+- ISSUE#14 frazy w cudzysłowie są czasami wyszukiwane nawet jeśli słowa nie postępują po sobie, przykład ["machinery piping"](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&query=%22machinery%20piping%22&rowspage=20&maxresultsfile=10&page=4) znajduje: 'refrigeration systems; auxiliary **machinery**; boilers and other pressure vessels; **piping** and'
+- ISSUE#13 powiązany z ISSUE#12, ale dotyczy OR (identyczne zachowanie)
+- ISSUE#12 Operator logiczny AND nie działa, przykład: [watertight AND door](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+AND+door&rowspage=20) oraz [watertight door](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+door&rowspage=20) dają identyczne 126 wyników, przy czym pierwsze wyszukanie podświetla również słowo 'and'
+- ISSUE#11 wyszukanie / pole tekstowe nie jest zachowane po kliknięciu `Browse Documents` lub `Help` i powrocie do `Search` (strona odświeża się)
+- ISSUE#10 związane z ISSUE#07, [strony z wynikami](#numeracja-stron-z-wynikami) powinny zliczać DOKUMENTY (po 20), a nie wyniki jak obecnie (za dużo stron)
+- ISSUE#09 [Grupy w lewym panelu](#zwijalna-lista-kategorii) do filtracji powinny być zwijalne (domyślnie zwinięte); dobrze jest to rozwiązane w zakładce `Browse Documents`
+
+#### 12.10.2026
+
 - ISSUE#08 po kliknięciu w [Details](#details) nie da się wrócić do trybu `redakcja=0` z poziomu GUI, [przykład](https://dr.prs.pl/dev/rules-dms/index.php?redakcja=1&db=PRS-Rules)
 - ISSUE#07 [snippets](#wiele-wyników-w-jednym-pliku) powinny być listą rozwijalną, tak jak zawartości kategorii; obecnie wyniki z jednego pliku potrafią zająć kilka stron [przykład](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&query=pomiar*%20grubo*&rowspage=20&maxresultsfile=10&page=1) `pomiar* grubo*`
 - ISSUE#06 [linebreak](#line-break) słowa rozbite myślnikiem na dwa wiersze nie są wyszukiwane, przykład `przewidywanym zakończeniem` [nowa-wyszukiwarka](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&query=przewidywanym+zako%C5%84czeniem&cb_PL=on&cb_EN=on&rowspage=20), [stara-wyszukiwarka](https://dr.prs.pl/rulessearch/index.php?grp=PUB-P&lang=EN&keyword=przewidywanym%20zako%C5%84czeniem) stara znajduje PUB39/P a nowa nie
@@ -34,7 +48,15 @@ _12.10.2026 pb_
 
 ### Solved
 
+### Outdated
+
 ## Wyszukiwanie
+
+### #15 Operator NOT
+
+Nie zmienia się liczba wyszukanych rekordów, słowo NOT podkreślone jako wyszukanie
+
+![Operator NOT](./img/i15.png)
 
 ### Wiele wyników w jednym pliku
 [home](#)
