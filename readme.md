@@ -3,10 +3,12 @@ _19.10.2026 pb_
 
 - [ISSUES](#issues)
   - [Pending](#pending)
-    - [19.10.2026](#19102026)
-    - [12.10.2026](#12102026)
+    - [Created on 19.10.2026](#created-on-19102026)
+    - [Created on 12.10.2026](#created-on-12102026)
   - [Solved](#solved)
+    - [Moved on 19.10.2026](#moved-on-19102026)
   - [Outdated](#outdated)
+    - [Moved on 19.10.2026](#moved-on-19102026-1)
 - [Wyszukiwanie](#wyszukiwanie)
   - [#15 Operator NOT](#15-operator-not)
   - [Wiele wyników w jednym pliku](#wiele-wyników-w-jednym-pliku)
@@ -14,6 +16,7 @@ _19.10.2026 pb_
   - [Restrykcyjne wyszukiwanie](#restrykcyjne-wyszukiwanie)
   - [Operatory logiczne](#operatory-logiczne)
 - [Funkcjonalność / UI](#funkcjonalność--ui)
+  - [#16 Lista stron](#16-lista-stron)
   - [Details](#details)
   - [Metadane](#metadane)
   - [Fatal error](#fatal-error)
@@ -25,34 +28,48 @@ _19.10.2026 pb_
 
 ### Pending
 
-#### 19.10.2026
+#### Created on 19.10.2026
 
-- ISSUE#15 operator logiczny NOT nie działa, traktuje `not` jako słowo do wyszukania, przykład ["watertight NOT door"](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+NOT+door&rowspage=20), [screen](#15-operator-not)
+- ISSUE#17 lista wyników podświetla operatory logiczne AND/OR/NOT również w częściach słów, do wygaszenia
+- ISSUE#16 [screen](#16-lista-stron) gdy stron jest więcej niż 10, nie da się łatwo przejść do pierwszej lub ostatniej
 - ISSUE#14 frazy w cudzysłowie są czasami wyszukiwane nawet jeśli słowa nie postępują po sobie, przykład ["machinery piping"](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&query=%22machinery%20piping%22&rowspage=20&maxresultsfile=10&page=4) znajduje: 'refrigeration systems; auxiliary **machinery**; boilers and other pressure vessels; **piping** and'
-- ISSUE#13 powiązany z ISSUE#12, ale dotyczy OR (identyczne zachowanie)
-- ISSUE#12 Operator logiczny AND nie działa, przykład: [watertight AND door](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+AND+door&rowspage=20) oraz [watertight door](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+door&rowspage=20) dają identyczne 126 wyników, przy czym pierwsze wyszukanie podświetla również słowo 'and'
 - ISSUE#11 wyszukanie / pole tekstowe nie jest zachowane po kliknięciu `Browse Documents` lub `Help` i powrocie do `Search` (strona odświeża się)
-- ISSUE#10 związane z ISSUE#07, [strony z wynikami](#numeracja-stron-z-wynikami) powinny zliczać DOKUMENTY (po 20), a nie wyniki jak obecnie (za dużo stron)
-- ISSUE#09 [Grupy w lewym panelu](#zwijalna-lista-kategorii) do filtracji powinny być zwijalne (domyślnie zwinięte); dobrze jest to rozwiązane w zakładce `Browse Documents`
+- ISSUE#10 związane z ISSUE#07, [strony z wynikami](#numeracja-stron-z-wynikami) powinny zliczać DOKUMENTY (po 20), a nie wyniki jak obecnie (za dużo stron), powinna być lista rozwijana jak w panelu po lewej stronie
 
-#### 12.10.2026
+#### Created on 12.10.2026
 
-- ISSUE#08 po kliknięciu w [Details](#details) nie da się wrócić do trybu `redakcja=0` z poziomu GUI, [przykład](https://dr.prs.pl/dev/rules-dms/index.php?redakcja=1&db=PRS-Rules)
 - ISSUE#07 [snippets](#wiele-wyników-w-jednym-pliku) powinny być listą rozwijalną, tak jak zawartości kategorii; obecnie wyniki z jednego pliku potrafią zająć kilka stron [przykład](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&query=pomiar*%20grubo*&rowspage=20&maxresultsfile=10&page=1) `pomiar* grubo*`
 - ISSUE#06 [linebreak](#line-break) słowa rozbite myślnikiem na dwa wiersze nie są wyszukiwane, przykład `przewidywanym zakończeniem` [nowa-wyszukiwarka](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&query=przewidywanym+zako%C5%84czeniem&cb_PL=on&cb_EN=on&rowspage=20), [stara-wyszukiwarka](https://dr.prs.pl/rulessearch/index.php?grp=PUB-P&lang=EN&keyword=przewidywanym%20zako%C5%84czeniem) stara znajduje PUB39/P a nowa nie
 - ISSUE#05 [restrykcyjność](#restrykcyjne-wyszukiwanie) nie wyświetla wyników gdy nie znajdzie każdego wyszukanego słowa, przykład `wtyczka gniazdo pływak` [link](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&query=wtyczka+gniazdo+p%C5%82ywak&cb_PL=on&cb_EN=on&rowspage=20) brak wyników, [stara wyszukiwarka](https://dr.prs.pl/rulessearch/index.php?lang=PL&keyword=wtyczka%20gniazdo%20p%C5%82ywak) daje wyniki par słów
-- ISSUE#04 [operatory](#operatory-logiczne) AND/OR nie działają, funkcjonują jako zwykłe wyszukiwanie i znajdują słowa and/or lub fragmenty słów [przykład](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&query=wtyczka+OR+gniazdo+OR+p%C5%82ywak&cb_PL=on&cb_EN=on&rowspage=20) `wtyczka OR gniazdo OR pływak`
-- ISSUE#03 [metadane](#metadane) wprowadzone ręcznie ulegają usunięciu przy nadpisaniu pliku pdf; powinny być dziedziczone
-- ISSUE#02 [wstecz](#fatal-error) często wywala fatal error, zwłaszcza w trybie admina
-- ISSUE#01 [document expired](#document-expired) błąd wyświetlany przy przerwaniu jakiejś procedury bez jej finalizacji
 
 ### Solved
 
+#### Moved on 19.10.2026
+
+- ISSUE#15 from 19.10.2026 operator logiczny NOT nie działa, traktuje `not` jako słowo do wyszukania, przykład ["watertight NOT door"](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+NOT+door&rowspage=20), [screen](#15-operator-not)
+  - rozwiązane przez nawiasy patrz ISSUE#04
+- ISSUE#13 from 19.10.2026 powiązany z ISSUE#12, ale dotyczy OR (identyczne zachowanie)
+  - - rozwiązane przez nawiasy patrz ISSUE#04
+- ISSUE#12 from 19.10.2026 Operator logiczny AND nie działa, przykład: [watertight AND door](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+AND+door&rowspage=20) oraz [watertight door](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&grp=&query=watertight+door&rowspage=20) dają identyczne 126 wyników, przy czym pierwsze wyszukanie podświetla również słowo 'and'
+  - - rozwiązane przez nawiasy patrz ISSUE#04
+- ISSUE#09 from 19.10.2026 [Grupy w lewym panelu](#zwijalna-lista-kategorii) do filtracji powinny być zwijalne (domyślnie zwinięte); dobrze jest to rozwiązane w zakładce `Browse Documents`
+  - kategorie w lewym panelu są teraz zwijalne
+- ISSUE#04 from 12.10.2026 [operatory](#operatory-logiczne) AND/OR nie działają, funkcjonują jako zwykłe wyszukiwanie i znajdują słowa and/or lub fragmenty słów [przykład](https://dr.prs.pl/dev/rules-dms/?db=PRS-Rules&query=wtyczka+OR+gniazdo+OR+p%C5%82ywak&cb_PL=on&cb_EN=on&rowspage=20) `wtyczka OR gniazdo OR pływak`
+  - rozwiązane przez nawiasy np. `keyword1 ( OR keyword2 )` zaprezentowane w `Help`
+
 ### Outdated
+
+#### Moved on 19.10.2026
+
+- ISSUE#08 from 12.10.2026 po kliknięciu w [Details](#details) nie da się wrócić do trybu `redakcja=0` z poziomu GUI, [przykład](https://dr.prs.pl/dev/rules-dms/index.php?redakcja=1&db=PRS-Rules)
+- ISSUE#03 from 12.10.2026 [metadane](#metadane) wprowadzone ręcznie ulegają usunięciu przy nadpisaniu pliku pdf; powinny być dziedziczone
+- ISSUE#02 from 12.10.2026 [wstecz](#fatal-error) często wywala fatal error, zwłaszcza w trybie admina
+- ISSUE#01 from 12.10.2026 [document expired](#document-expired) błąd wyświetlany przy przerwaniu jakiejś procedury bez jej finalizacji
 
 ## Wyszukiwanie
 
 ### #15 Operator NOT
+[home](#)
 
 Nie zmienia się liczba wyszukanych rekordów, słowo NOT podkreślone jako wyszukanie
 
@@ -111,6 +128,12 @@ Przykład z Helpa sugeruje użycie cudzysłowia w tym przypadku, ale to równie�
 ![Cudzysłów](./img/wtyczka-gniazdo-plywak-4.png)
 
 ## Funkcjonalność / UI
+
+### #16 Lista stron
+
+Uzupełnić FIRST ... 4 5 6 7 8 9 x ... LAST
+
+![ISSUE#16](./img/i16.png)
 
 ### Details
 [home](#)
